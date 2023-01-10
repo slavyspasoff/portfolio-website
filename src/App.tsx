@@ -1,26 +1,18 @@
 import { useContext, type MouseEventHandler } from 'react';
-import { Button, CssBaseline, ThemeProvider } from '@mui/material';
-import { LightModeOutlined, DarkModeOutlined } from '@mui/icons-material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+
 import theme from './theme';
 import { ctx } from './Context';
 
+import Navbar from './components/Navbar';
+
 function App() {
   const { mode, setMode } = useContext(ctx);
-  const handleModeChange: MouseEventHandler<HTMLButtonElement> = (evt) => {
-    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   return (
     <ThemeProvider theme={theme(mode)}>
       <CssBaseline enableColorScheme />
-      <Button
-        onClick={handleModeChange}
-        variant='text'
-        color='warning'
-        disableRipple
-      >
-        {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
-      </Button>
+      <Navbar mode={mode} setMode={setMode} />
     </ThemeProvider>
   );
 }
