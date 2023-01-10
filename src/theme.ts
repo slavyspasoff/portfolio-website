@@ -1,5 +1,5 @@
 import { createTheme, darkScrollbar, type PaletteMode } from '@mui/material';
-import { amber, pink, grey } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 
 declare module '@mui/material/styles' {
   interface Theme {}
@@ -8,6 +8,9 @@ declare module '@mui/material/styles' {
 
 export default (theme: PaletteMode) =>
   createTheme({
+    typography: {
+      fontFamily: ['Montserrat', 'sans-serif'].join(','),
+    },
     palette: {
       mode: theme,
       background: {

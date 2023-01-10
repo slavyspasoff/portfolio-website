@@ -1,4 +1,5 @@
 :root {
-  font-family: Roboto, sans-serif;
+  font-family: montserrat, sans-serif;
+  /* TODO: Remove height */
   min-height: 200vh;
 }

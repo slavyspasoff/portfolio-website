@@ -1,5 +1,5 @@
 import { useContext, type MouseEventHandler } from 'react';
-import { Button, CssBaseline, ThemeProvider, Typography } from '@mui/material';
+import { Button, CssBaseline, ThemeProvider } from '@mui/material';
 import { LightModeOutlined, DarkModeOutlined } from '@mui/icons-material';
 import theme from './theme';
 import { ctx } from './Context';
