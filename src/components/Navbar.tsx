@@ -22,7 +22,7 @@ interface Props {
   mode: PaletteMode;
   setMode: Dispatch<SetStateAction<PaletteMode>>;
 }
-
+// TODO: Move to styles maybe
 const NavItem = styled('a')(({ theme }) => ({
   textDecoration: 'none',
   fontWeight: theme.typography.fontWeightMedium,
@@ -92,16 +92,21 @@ function Navbar({ mode, setMode }: Props) {
           variant='temporary'
           open={mobileOpen}
           onClose={handleDrawerToggle}
+          elevation={0}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
+          sx={(theme) => ({
+            display: {
+              xs: 'block',
+              sm: 'none',
+            },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: '100%',
+              width: '80%',
+              backgroundColor: theme.palette.background.default,
             },
-          }}
+          })}
         >
           {renderNavItems({
             display: { xs: 'flex', sm: 'none' },
@@ -111,16 +116,7 @@ function Navbar({ mode, setMode }: Props) {
           })}
         </Drawer>
       </Box>
-      <IconButton
-        disableRipple
-        size='small'
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-        }}
-        onClick={handleDrawerToggle}
-      >
-        <Menu />
-      </IconButton>
+
       {renderNavItems({
         display: { xs: 'none', sm: 'flex' },
       })}
@@ -131,6 +127,16 @@ function Navbar({ mode, setMode }: Props) {
         color='warning'
       >
         {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
+      </IconButton>
+      <IconButton
+        disableRipple
+        size='small'
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+        }}
+        onClick={handleDrawerToggle}
+      >
+        <Menu />
       </IconButton>
     </AppBar>
   );
