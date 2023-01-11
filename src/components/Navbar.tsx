@@ -5,11 +5,9 @@ import {
   type SetStateAction,
 } from 'react';
 import {
-  Button,
   AppBar,
   Drawer,
   Box,
-  Typography,
   IconButton,
   styled,
   useScrollTrigger,
@@ -83,13 +81,12 @@ function Navbar({ mode, setMode }: Props) {
           justifyContent: 'end',
           alignContent: 'center',
           px: 3,
+          py: 1,
           [theme.breakpoints.up('sm')]: {
             justifyContent: 'end',
             px: 4,
             gap: 4,
           },
-          alignItems: 'center',
-          py: 1,
         })}
       >
         {renderNavItems({
@@ -97,6 +94,7 @@ function Navbar({ mode, setMode }: Props) {
         })}
         <IconButton onClick={handleModeChange} disableRipple size='small'>
           {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
+          {/*TODO: Add text "dark/light mode" and wrap it in a container. Then fix the svg sizing.*/}
         </IconButton>
         <IconButton
           disableRipple

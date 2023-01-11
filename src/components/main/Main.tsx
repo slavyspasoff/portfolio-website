@@ -8,6 +8,10 @@ function Main({}: Props) {
   return (
     <Box
       component={'main'}
+      id='home'
+      /*TODO: Calculate the height 100vh - whatever rem the navbar is
+      P.S.: Maybe add a "dummy" nav behind the real one instead of margin, will solve most of my problems. Or maybe sticky... need to check the mui docs again... 
+      */
       sx={(theme) => ({
         mt: '12.5vh',
         minHeight: '80vh',
@@ -16,8 +20,10 @@ function Main({}: Props) {
           height: '50vh',
           display: 'flex',
         },
+        // border: '1px solid red',
         '&>*': {
           flexBasis: '100%',
+          // border: '1px solid yellow',
         },
       })}
     >
@@ -31,7 +37,6 @@ function Main({}: Props) {
         sx={(theme) => ({
           display: 'flex',
           flexDirection: 'column',
-          // alignItems: 'center',
           [theme.breakpoints.up('sm')]: {
             pl: 20,
           },
@@ -41,8 +46,6 @@ function Main({}: Props) {
         <Typography
           component={'h1'}
           variant='h2'
-          // align='center'
-
           gutterBottom
           sx={(theme) => ({
             fontWeight: theme.typography.fontWeightMedium,
@@ -53,16 +56,16 @@ function Main({}: Props) {
             sequence={[200, 'Slavy Spasoff']}
             speed={10}
             cursor={false}
+            wrapper={'span'}
           />
         </Typography>
 
-        <Typography
-          component={'h2'}
-          variant='h4'
-          // align='center'
-          gutterBottom
-        >
-          <TypeAnimation sequence={[1500, 'Fullstack developer']} speed={50} />
+        <Typography component={'h2'} variant='h4' gutterBottom>
+          <TypeAnimation
+            sequence={[1500, 'Fullstack developer']}
+            speed={50}
+            wrapper={'span'}
+          />
         </Typography>
         <Box>
           <Button variant='contained' sx={{ mr: 4 }}>

@@ -6,6 +6,7 @@ import { ctx } from './Context';
 
 import Navbar from './components/Navbar';
 import Main from './components/main/Main';
+import About from './components/about/About';
 
 function App() {
   const { mode, setMode } = useContext(ctx);
@@ -15,6 +16,7 @@ function App() {
       <CssBaseline enableColorScheme />
       <Navbar mode={mode} setMode={setMode} />
       <Main />
+      <About />
     </ThemeProvider>
   );
 }
