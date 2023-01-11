@@ -72,20 +72,46 @@ function Navbar({ mode, setMode }: Props) {
   };
 
   return (
-    <AppBar
-      component='nav'
-      enableColorOnDark
-      elevation={trigger ? 4 : 0}
-      sx={(theme) => ({
-        backgroundColor: theme.palette.background.default,
-        flexDirection: 'row',
-        justifyContent: 'end',
-        alignItems: 'center',
-        gap: 4,
-        px: 4,
-        py: 1,
-      })}
-    >
+    <Box>
+      <AppBar
+        component='nav'
+        enableColorOnDark
+        elevation={trigger ? 4 : 0}
+        sx={(theme) => ({
+          backgroundColor: theme.palette.background.default,
+          flexDirection: 'row',
+          justifyContent: 'end',
+          alignContent: 'center',
+          px: 3,
+          [theme.breakpoints.up('sm')]: {
+            justifyContent: 'end',
+            px: 4,
+            gap: 4,
+          },
+          alignItems: 'center',
+          py: 1,
+        })}
+      >
+        {renderNavItems({
+          display: { xs: 'none', sm: 'flex' },
+        })}
+        <IconButton onClick={handleModeChange} disableRipple size='small'>
+          {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
+        </IconButton>
+        <IconButton
+          disableRipple
+          size='small'
+          sx={{
+            display: {
+              xs: 'block',
+              sm: 'none',
+            },
+          }}
+          onClick={handleDrawerToggle}
+        >
+          <Menu />
+        </IconButton>
+      </AppBar>
       <Box component='nav'>
         <Drawer
           container={null}
@@ -116,29 +142,7 @@ function Navbar({ mode, setMode }: Props) {
           })}
         </Drawer>
       </Box>
-
-      {renderNavItems({
-        display: { xs: 'none', sm: 'flex' },
-      })}
-      <IconButton
-        onClick={handleModeChange}
-        disableRipple
-        size='small'
-        color='warning'
-      >
-        {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
-      </IconButton>
-      <IconButton
-        disableRipple
-        size='small'
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-        }}
-        onClick={handleDrawerToggle}
-      >
-        <Menu />
-      </IconButton>
-    </AppBar>
+    </Box>
   );
 }
 export default Navbar;

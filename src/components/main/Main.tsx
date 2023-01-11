@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from '@mui/material';
-
+import { TypeAnimation } from 'react-type-animation';
 import profilePicture from '../../assets/profile-picture.webp';
 
 interface Props {}
@@ -31,22 +31,38 @@ function Main({}: Props) {
         sx={(theme) => ({
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          // alignItems: 'center',
+          [theme.breakpoints.up('sm')]: {
+            pl: 20,
+          },
           justifyContent: 'center',
         })}
       >
         <Typography
           component={'h1'}
           variant='h2'
-          align='center'
+          // align='center'
+
           gutterBottom
-          sx={(theme) => ({ fontWeight: theme.typography.fontWeightMedium })}
+          sx={(theme) => ({
+            fontWeight: theme.typography.fontWeightMedium,
+          })}
         >
-          Slavy Spasoff
+          {/* Slavy Spasoff */}
+          <TypeAnimation
+            sequence={[200, 'Slavy Spasoff']}
+            speed={10}
+            cursor={false}
+          />
         </Typography>
 
-        <Typography component={'h2'} variant='h4' align='center' gutterBottom>
-          Fullstack developer
+        <Typography
+          component={'h2'}
+          variant='h4'
+          // align='center'
+          gutterBottom
+        >
+          <TypeAnimation sequence={[1500, 'Fullstack developer']} speed={50} />
         </Typography>
         <Box>
           <Button variant='contained' sx={{ mr: 4 }}>
