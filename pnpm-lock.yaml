@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@emotion-icons/boxicons-logos': ^3.19.0
+  '@emotion-icons/simple-icons': ^3.27.0
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
   '@mui/icons-material': ^5.11.0
@@ -15,6 +17,8 @@ specifiers:
   vite: ^4.0.0
 
 dependencies:
+  '@emotion-icons/boxicons-logos': 3.19.0_dovxhg2tvkkxkdnqyoum6wzcxm
+  '@emotion-icons/simple-icons': 3.27.0_dovxhg2tvkkxkdnqyoum6wzcxm
   '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
   '@emotion/styled': 11.10.5_qvatmowesywn4ye42qoh247szu
   '@mui/icons-material': 5.11.0_6zueiyxsk3wwk7ardr4xipkxnu
@@ -267,6 +271,47 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@emotion-icons/boxicons-logos/3.19.0_dovxhg2tvkkxkdnqyoum6wzcxm:
+    resolution: {integrity: sha512-kYcG9T2YzYymARMo/lwVMuRaGhot0KzyQdvsNpmY4BASsseKgFxwt6HKGZukHUfl03UlOoTEUBeU1ba7CKR4bA==}
+    peerDependencies:
+      '@emotion/react': '>=11.0.0 <12'
+      '@emotion/styled': '>=11.0.0 <12'
+      react: '*'
+    dependencies:
+      '@babel/runtime': 7.20.7
+      '@emotion-icons/emotion-icon': 4.1.0_dovxhg2tvkkxkdnqyoum6wzcxm
+      '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
+      '@emotion/styled': 11.10.5_qvatmowesywn4ye42qoh247szu
+      react: 18.2.0
+    dev: false
+
+  /@emotion-icons/emotion-icon/4.1.0_dovxhg2tvkkxkdnqyoum6wzcxm:
+    resolution: {integrity: sha512-bOUbWj8DPjUK5MtRx2ApMudOnh/tasqJwa+sdRbqsZD0g0hYf0jCsTDNs/57VvGOJH2PfWDKD1jbLjwajAYT9A==}
+    peerDependencies:
+      '@emotion/react': '>=11.0.0 <12'
+      '@emotion/styled': '>=11.0.0 <12'
+      react: '*'
+    dependencies:
+      '@babel/runtime': 7.20.7
+      '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
+      '@emotion/styled': 11.10.5_qvatmowesywn4ye42qoh247szu
+      react: 18.2.0
+    dev: false
+
+  /@emotion-icons/simple-icons/3.27.0_dovxhg2tvkkxkdnqyoum6wzcxm:
+    resolution: {integrity: sha512-DAp2Hq6EQDFTQ1n80PAIhnREQlJ1j5MbJoYneDPKhzl9ItWrUVHPvqBuIAE2qQ0PtaVJAcw1COOxeE/xuxZFyw==}
+    peerDependencies:
+      '@emotion/react': '>=11.0.0 <12'
+      '@emotion/styled': '>=11.0.0 <12'
+      react: '*'
+    dependencies:
+      '@babel/runtime': 7.20.7
+      '@emotion-icons/emotion-icon': 4.1.0_dovxhg2tvkkxkdnqyoum6wzcxm
+      '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
+      '@emotion/styled': 11.10.5_qvatmowesywn4ye42qoh247szu
+      react: 18.2.0
+    dev: false
 
   /@emotion/babel-plugin/11.10.5:
     resolution: {integrity: sha512-xE7/hyLHJac7D2Ve9dKroBBZqBT7WuPQmWcq7HSGb84sUuP4mlOWoB8dvVfD9yk5DHkU1m6RW7xSoDtnQHNQeA==}

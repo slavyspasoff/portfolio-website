@@ -7,6 +7,7 @@ import { ctx } from './Context';
 import Navbar from './components/Navbar';
 import Main from './components/main/Main';
 import About from './components/about/About';
+import Skills from './components/skills/Skills';
 
 function App() {
   const { mode, setMode } = useContext(ctx);
@@ -17,6 +18,7 @@ function App() {
       <Navbar mode={mode} setMode={setMode} />
       <Main />
       <About />
+      <Skills />
     </ThemeProvider>
   );
 }

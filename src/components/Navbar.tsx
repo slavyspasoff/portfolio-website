@@ -13,6 +13,7 @@ import {
   useScrollTrigger,
   type PaletteMode,
   type SxProps,
+  Typography,
 } from '@mui/material';
 import { LightModeOutlined, DarkModeOutlined, Menu } from '@mui/icons-material';
 
@@ -30,7 +31,7 @@ const NavItem = styled('a')(({ theme }) => ({
 
 function Navbar({ mode, setMode }: Props) {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const navItems = ['home', 'about', 'project', 'contact'];
+  const navItems = ['home', 'about', 'skills', 'project', 'contact'];
 
   //TODO: Move to own component
   const renderNavItems = (sx: SxProps) => (
@@ -89,6 +90,16 @@ function Navbar({ mode, setMode }: Props) {
           },
         })}
       >
+        {/* <Typography
+          sx={(theme) => ({
+            fontFamily: 'Dancing Script',
+            // color: theme.palette.text.primary,
+            color: theme.palette.primary.main,
+            fontSize: '1.25rem',
+          })}
+        >
+          Slavy Spasoff
+        </Typography> */}
         {renderNavItems({
           display: { xs: 'none', sm: 'flex' },
         })}

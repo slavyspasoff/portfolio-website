@@ -51,7 +51,6 @@ function Main({}: Props) {
             fontWeight: theme.typography.fontWeightMedium,
           })}
         >
-          {/* Slavy Spasoff */}
           <TypeAnimation
             sequence={[200, 'Slavy Spasoff']}
             speed={10}
@@ -72,10 +71,9 @@ function Main({}: Props) {
             Download CV
           </Button>
           <Button variant='outlined'>Contact me</Button>
-          {/* <a href='#about'>View Projects</a> <span> or </span>
-          <a href='#about'>Read About Me</a> */}
         </Box>
       </Box>
+      {/*TODO: Add prompt to scroll down */}
     </Box>
   );
 }

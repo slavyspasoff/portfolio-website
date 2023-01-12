@@ -4,7 +4,7 @@ function About({}: Props) {
   return (
     <Box
       sx={{
-        minHeight: '150vh',
+        // minHeight: '150vh',
         mt: 10,
       }}
       id='about'

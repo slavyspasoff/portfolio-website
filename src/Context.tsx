@@ -6,6 +6,7 @@ interface Ctx {
 }
 
 const ctx = createContext<Ctx>(null!);
+
 interface Props {
   children: React.ReactNode;
 }
