@@ -52,6 +52,7 @@ function Skills({}: Props) {
             mode === 'light' ? lightBlue['100'] : lightBlue['900'],
           boxShadow:
             mode === 'light' ? null : `${lightBlue['900']} 0px 0px 100px 1px`,
+          // null,
           width: '90%',
           maxWidth: '960px',
           display: 'flex',
