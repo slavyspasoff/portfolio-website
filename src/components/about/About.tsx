@@ -45,9 +45,9 @@ function About({}: Props) {
             top: '50%',
             left: 0,
             fontWeight: theme.typography.fontWeightBold,
-            '@keyframes slide': {
+            opacity: 0,
+            '@keyframes background-slide': {
               from: {
-                opacity: 0,
                 filter: 'blur(1rem)',
                 transform: 'translate(-12.5%)',
               },
@@ -55,7 +55,9 @@ function About({}: Props) {
                 opacity: 1,
               },
             },
-            animation: isIntersection ? `slide 750ms ease-in` : undefined,
+            animation: isIntersection
+              ? `background-slide 750ms 0.5s ease-in forwards`
+              : undefined,
           },
           [theme.breakpoints.down('sm')]: {
             textAlign: 'center',
@@ -71,6 +73,18 @@ function About({}: Props) {
           width: '80%',
           maxWidth: '60rem',
           marginInline: 'auto 12.5%',
+          opacity: 0,
+          '@keyframes slide': {
+            from: {
+              transform: 'translateY(12.5%)',
+            },
+            to: {
+              opacity: 1,
+            },
+          },
+          animation: isIntersection
+            ? `slide 500ms ease-in forwards`
+            : undefined,
         }}
       >
         <Typography

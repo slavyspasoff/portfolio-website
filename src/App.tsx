@@ -18,7 +18,7 @@ function App() {
     <ThemeProvider theme={theme(mode)}>
       <CssBaseline enableColorScheme />
       <Navbar mode={mode} setMode={setMode} />
-      <div style={{ height: '3.5rem' }} id='home' />
+      <div style={{ height: '3.5rem' }} id='home' /> {/*Navbar offset div */}
       <Main />
       <SocialLinks />
       <About />
