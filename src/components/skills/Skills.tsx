@@ -54,11 +54,9 @@ function Skills({}: Props) {
           mb: 50,
           mx: 'auto',
           borderRadius: '1em',
-          backgroundColor: mode === 'light' ? lightBlue['100'] : cyan['700'],
-          boxShadow:
-            mode === 'light'
-              ? theme.shadows[20]
-              : `${cyan['A700']} 0px 0px 50px 1px`,
+          backgroundColor:
+            mode === 'light' ? theme.palette.grey['300'] : cyan['700'],
+          // boxShadow: theme.shadows[20],
           width: '90%',
           maxWidth: '960px',
           display: 'flex',

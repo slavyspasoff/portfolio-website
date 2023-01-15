@@ -14,6 +14,9 @@ function SolicalLinks({}: Props) {
         flexDirection: 'column',
         gap: 2,
         alignItems: 'center',
+        [theme.breakpoints.down('sm')]: {
+          display: 'none',
+        },
       })}
     >
       <LinkedIn
