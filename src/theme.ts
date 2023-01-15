@@ -1,5 +1,5 @@
 import { createTheme, darkScrollbar, type PaletteMode } from '@mui/material';
-import { grey, amber, cyan } from '@mui/material/colors';
+import { grey, teal, cyan } from '@mui/material/colors';
 
 declare module '@mui/material/styles' {
   interface Theme {}
@@ -8,6 +8,7 @@ declare module '@mui/material/styles' {
 
 /**
  * colors
+ * rgba(1,0,29,1)
  * rgba(33, 33, 33, 1)
  * rgba(241, 43, 94, 1)
  * rgba(194, 47, 91, 1)
@@ -22,10 +23,10 @@ export default (theme: PaletteMode) =>
     palette: {
       mode: theme,
       background: {
-        default: theme === 'dark' ? 'rgb(1,0,29)' : 'rgb(255,251,247)',
+        default: theme === 'dark' ? 'rgb(10,25,47)' : 'rgb(255,251,247)',
       },
       primary: {
-        main: theme === 'dark' ? 'rgb(0,255,155)' : cyan['700'],
+        main: theme === 'dark' ? teal['A200'] : cyan['700'],
       },
     },
     components: {

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { Box, Typography, SvgIcon, alpha } from '@mui/material';
-import { lightBlue } from '@mui/material/colors';
+import { Box, Typography, SvgIcon } from '@mui/material';
+import { lightBlue, teal, cyan } from '@mui/material/colors';
 import {
   Html5,
   Css3,
@@ -10,7 +10,12 @@ import {
   Nodejs,
   Git,
 } from '@emotion-icons/boxicons-logos';
-import { Express, Materialui, Mongodb } from '@emotion-icons/simple-icons';
+import {
+  Express,
+  Materialui,
+  Mongodb,
+  Linux,
+} from '@emotion-icons/simple-icons';
 
 import { ctx } from '../../Context';
 
@@ -28,6 +33,7 @@ function Skills({}: Props) {
     <Express title='Express' />,
     <Sass title='Sass' />,
     <Materialui title='MaterialUI' />,
+    <Linux title='Linux' />,
     <Git title='Git' />,
   ];
 
@@ -48,11 +54,11 @@ function Skills({}: Props) {
           mb: 50,
           mx: 'auto',
           borderRadius: '1em',
-          backgroundColor:
-            mode === 'light' ? lightBlue['100'] : lightBlue['900'],
+          backgroundColor: mode === 'light' ? lightBlue['100'] : cyan['700'],
           boxShadow:
-            mode === 'light' ? null : `${lightBlue['900']} 0px 0px 100px 1px`,
-          // null,
+            mode === 'light'
+              ? theme.shadows[20]
+              : `${cyan['A700']} 0px 0px 50px 1px`,
           width: '90%',
           maxWidth: '960px',
           display: 'flex',

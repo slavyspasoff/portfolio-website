@@ -1,23 +1,54 @@
-import { Box, Typography } from '@mui/material';
+import { useState, useRef, useEffect } from 'react';
+import { Box, Typography, alpha } from '@mui/material';
+
 interface Props {}
+
 function About({}: Props) {
+  //TODO: Mouse IntersectionObserver into custom hook
+  const [isIntersection, setIsIntersecting] = useState<boolean>(false);
+
+  const textRef = useRef<HTMLHeadingElement>(null);
+
+  const observerCallback: IntersectionObserverCallback = (entries) => {
+    setIsIntersecting(entries[0].isIntersecting);
+  };
+  const observer = new IntersectionObserver(observerCallback);
+
+  useEffect(() => {
+    if (textRef.current) observer.observe(textRef.current);
+  });
+
   return (
     <Box
       sx={{
-        // minHeight: '150vh',
-        mt: 10,
+        my: 50,
+        position: 'relative',
       }}
       id='about'
+      component='article'
     >
       <Typography
-        variant='h6'
-        component={'h2'}
-        align='center'
+        variant='h2'
         sx={(theme) => ({
-          color: theme.palette.text.secondary,
+          fontSize: '15rem',
+          color: alpha(theme.palette.text.secondary, 0.1),
+          position: 'absolute',
+          fontWeight: theme.typography.fontWeightBold,
+          '@keyframes slide': {
+            from: {
+              opacity: 0,
+              filter: 'blur(1rem)',
+              transform: 'translate(-25%)',
+            },
+            to: {
+              opacity: 1,
+            },
+          },
+          animation: isIntersection ? `slide 0.75s ease-in` : undefined,
         })}
+        ref={textRef}
       >
-        A FEW WORDS ABOUT ME
+        ABOUT ME
       </Typography>
       <Box sx={{ width: '80%', maxWidth: '60rem', mx: 'auto', mt: 5 }}>
         <Typography
