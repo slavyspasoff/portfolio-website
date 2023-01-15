@@ -44,7 +44,7 @@ function About({}: Props) {
               opacity: 1,
             },
           },
-          animation: isIntersection ? `slide 0.75s ease-in` : undefined,
+          animation: isIntersection ? `slide 750ms ease-in` : undefined,
         })}
         ref={textRef}
       >
