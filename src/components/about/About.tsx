@@ -1,11 +1,29 @@
 import { useState, useRef, useEffect } from 'react';
-import { Box, Typography, alpha, styled } from '@mui/material';
+import { Box, Typography, alpha, styled, keyframes } from '@mui/material';
 
 interface Props {}
 
 const Wrapper = styled('span')(({ theme }) => ({
   color: theme.palette.primary.main,
 }));
+
+const backgroundAnimation = keyframes`
+  0% {
+      transform: translateY(12.5%);
+    }
+  100% {
+      opacity: 1;
+    },
+`;
+
+const textAnimation = keyframes`
+  0% {
+    transform: translateY(12.5%);
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 function About({}: Props) {
   //TODO: Mouse IntersectionObserver into custom hook
@@ -46,17 +64,8 @@ function About({}: Props) {
             left: 0,
             fontWeight: theme.typography.fontWeightBold,
             opacity: 0,
-            '@keyframes background-slide': {
-              from: {
-                filter: 'blur(1rem)',
-                transform: 'translate(-12.5%)',
-              },
-              to: {
-                opacity: 1,
-              },
-            },
             animation: isIntersection
-              ? `background-slide 750ms 0.5s ease-in forwards`
+              ? `${backgroundAnimation} 750ms 0.5s ease-in forwards`
               : undefined,
           },
           [theme.breakpoints.down('sm')]: {
@@ -74,16 +83,8 @@ function About({}: Props) {
           maxWidth: '60rem',
           marginInline: 'auto 12.5%',
           opacity: 0,
-          '@keyframes slide': {
-            from: {
-              transform: 'translateY(12.5%)',
-            },
-            to: {
-              opacity: 1,
-            },
-          },
           animation: isIntersection
-            ? `slide 500ms ease-in forwards`
+            ? `${textAnimation} 500ms ease-in forwards`
             : undefined,
         }}
       >

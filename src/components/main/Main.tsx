@@ -41,7 +41,7 @@ function Main({}: Props) {
         })}
       >
         <Typography
-          component={'h1'}
+          component='h1'
           variant='h2'
           gutterBottom
           sx={(theme) => ({
@@ -50,13 +50,18 @@ function Main({}: Props) {
         >
           <TypeAnimation
             sequence={[200, 'Slavy Spasoff']}
-            speed={10}
+            speed={20}
             cursor={false}
             wrapper={'span'}
           />
         </Typography>
 
-        <Typography component={'h2'} variant='h4' gutterBottom>
+        <Typography
+          component={'h2'}
+          variant='h4'
+          gutterBottom
+          sx={(theme) => ({ color: theme.palette.text.secondary })}
+        >
           <TypeAnimation
             sequence={[1500, 'Fullstack developer']}
             speed={50}
