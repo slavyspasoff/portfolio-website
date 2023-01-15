@@ -8,22 +8,19 @@ function Main({}: Props) {
   return (
     <Box
       component={'main'}
-      id='home'
       /*TODO: Calculate the height 100vh - whatever rem the navbar is
       P.S.: Maybe add a "dummy" nav behind the real one instead of margin, will solve most of my problems. Or maybe sticky... need to check the mui docs again... 
       */
       sx={(theme) => ({
-        mt: '12.5vh',
+        mt: '7.5vh',
         minHeight: '80vh',
         p: 2,
         [theme.breakpoints.up('sm')]: {
           height: '50vh',
           display: 'flex',
         },
-        // border: '1px solid red',
         '&>*': {
           flexBasis: '100%',
-          // border: '1px solid yellow',
         },
       })}
     >
