@@ -34,6 +34,7 @@ function Navbar({ mode, setMode }: Props) {
   const navItems = ['home', 'about', 'skills', 'project', 'contact'];
 
   //TODO: Move to own component
+  //TODO: Make it an UL Element
   const renderNavItems = (sx: SxProps) => (
     <Box
       sx={{

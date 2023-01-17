@@ -35,7 +35,7 @@ function About({}: Props) {
           marginInline: 'auto 12.5%',
           opacity: 0,
           animation: isIntersecting
-            ? `${textAnimation} 500ms ease-in forwards`
+            ? `${textAnimation} 500ms  200ms ease-in forwards`
             : undefined,
         }}
         ref={textContainerRef}

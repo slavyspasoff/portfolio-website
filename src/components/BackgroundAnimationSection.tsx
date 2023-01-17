@@ -12,7 +12,6 @@ interface Props {
   children: ReactNode;
   text: string;
   id?: string;
-  sx?: SxProps<Theme>;
 }
 
 import useIntersectionObserver from '../hooks/useIntersectionObserver';
@@ -29,7 +28,7 @@ const backgroundAnimation = keyframes`
 
 interface Props {}
 
-function Section({ children, text, id, sx }: Props) {
+function Section({ children, text, id }: Props) {
   const backgroundTextRef = useRef<HTMLHeadingElement>(null);
 
   const isIntersecting = useIntersectionObserver(backgroundTextRef);

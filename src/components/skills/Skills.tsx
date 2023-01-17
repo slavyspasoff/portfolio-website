@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Box, Typography, SvgIcon } from '@mui/material';
+import { Box } from '@mui/material';
 
 import {
   Html5,
@@ -18,6 +18,7 @@ import {
 } from '@emotion-icons/simple-icons';
 
 import BackgroundAnimationSection from '../BackgroundAnimationSection';
+import Skill from './Skill';
 import { ctx } from '../../Context';
 
 interface Props {}
@@ -53,48 +54,23 @@ function Skills({}: Props) {
   ];
 
   return (
-    <BackgroundAnimationSection
-      text={'skills'}
-      id={'skills'}
-      sx={{ height: '50vh' }}
-    >
+    <BackgroundAnimationSection text={'skills'} id={'skills'}>
       <Box
         sx={(theme) => ({
           display: 'flex',
-          flexBasis: '55%',
+          flexBasis: '80%',
+          [theme.breakpoints.up('xl')]: {
+            flexBasis: '50%',
+          },
           mx: 'auto',
           justifyContent: 'center',
           flexWrap: 'wrap',
           gap: 2,
         })}
       >
-        {skills.map((Skill, idx) => {
+        {skills.map((skill, idx) => {
           return (
-            <Box
-              sx={(theme) => ({
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                p: 2,
-              })}
-            >
-              <SvgIcon
-                sx={(theme) => ({
-                  fontSize: 'clamp(3rem,10vw,6rem)',
-                  color: theme.palette.text.disabled,
-                })}
-              >
-                <Skill />
-              </SvgIcon>
-              <Typography
-                sx={(theme) => ({
-                  fontSize: 'clamp(1.25rem,3.5vw,2rem)',
-                  color: theme.palette.text.disabled,
-                })}
-              >
-                {skillText[idx]}
-              </Typography>
-            </Box>
+            <Skill Icon={skill} text={skillText[idx]} key={skillText[idx]} />
           );
         })}
       </Box>
