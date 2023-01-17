@@ -1,7 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Box, Typography, alpha, styled, keyframes } from '@mui/material';
 
 interface Props {}
+
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 const Wrapper = styled('span')(({ theme }) => ({
   color: theme.palette.primary.main,
@@ -28,18 +30,10 @@ const textAnimation = keyframes`
 
 function About({}: Props) {
   //TODO: Mouse IntersectionObserver into custom hook
-  const [isIntersection, setIsIntersecting] = useState<boolean>(false);
 
   const textRef = useRef<HTMLHeadingElement>(null);
 
-  const observerCallback: IntersectionObserverCallback = (entries) => {
-    setIsIntersecting(entries[0].isIntersecting);
-  };
-  const observer = new IntersectionObserver(observerCallback);
-
-  useEffect(() => {
-    if (textRef.current) observer.observe(textRef.current);
-  });
+  const isIntersecting = useIntersectionObserver(textRef);
 
   return (
     <Box
@@ -65,7 +59,7 @@ function About({}: Props) {
             left: 0,
             fontWeight: theme.typography.fontWeightBold,
             opacity: 0,
-            animation: isIntersection
+            animation: isIntersecting
               ? `${backgroundAnimation} 750ms 0.5s ease-in forwards`
               : undefined,
           },
@@ -85,7 +79,7 @@ function About({}: Props) {
           maxWidth: '60rem',
           marginInline: 'auto 12.5%',
           opacity: 0,
-          animation: isIntersection
+          animation: isIntersecting
             ? `${textAnimation} 500ms ease-in forwards`
             : undefined,
         }}
