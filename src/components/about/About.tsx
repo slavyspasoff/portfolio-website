@@ -1,23 +1,12 @@
 import { useRef } from 'react';
-import { Box, Typography, alpha, styled, keyframes } from '@mui/material';
+import { Box, Typography, styled, keyframes } from '@mui/material';
 
-interface Props {}
-
+import BackgroundAnimationSection from '../BackgroundAnimationSection';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 const Wrapper = styled('span')(({ theme }) => ({
   color: theme.palette.primary.main,
 }));
-
-const backgroundAnimation = keyframes`
-  0% {
-      filter:blur(1rem);
-      transform: translateX(-12.5%);
-    }
-  100% {
-      opacity: 1;
-    }
-`;
 
 const textAnimation = keyframes`
   0% {
@@ -28,51 +17,17 @@ const textAnimation = keyframes`
   }
 `;
 
+interface Props {}
+
 function About({}: Props) {
   //TODO: Mouse IntersectionObserver into custom hook
 
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const textContainerRef = useRef<HTMLHeadingElement>(null);
 
-  const isIntersecting = useIntersectionObserver(textRef);
+  const isIntersecting = useIntersectionObserver(textContainerRef);
 
   return (
-    <Box
-      sx={(theme) => ({
-        minHeight: '100vh',
-        position: 'relative',
-        [theme.breakpoints.up('md')]: {
-          display: 'flex',
-          alignItems: 'center',
-        },
-      })}
-      id='about'
-      component='article'
-    >
-      <Typography
-        variant='h2'
-        sx={(theme) => ({
-          [theme.breakpoints.up('md')]: {
-            fontSize: 'clamp(10rem,15vw,15rem)',
-            color: alpha(theme.palette.text.secondary, 0.05),
-            position: 'absolute',
-            top: '50%',
-            left: 0,
-            fontWeight: theme.typography.fontWeightBold,
-            opacity: 0,
-            animation: isIntersecting
-              ? `${backgroundAnimation} 750ms 0.5s ease-in forwards`
-              : undefined,
-          },
-          [theme.breakpoints.down('md')]: {
-            textAlign: 'center',
-            mt: 10,
-          },
-        })}
-        ref={textRef}
-        gutterBottom
-      >
-        ABOUT ME
-      </Typography>
+    <BackgroundAnimationSection text={'about me'} id={'about'}>
       <Box
         sx={{
           width: '80%',
@@ -83,6 +38,7 @@ function About({}: Props) {
             ? `${textAnimation} 500ms ease-in forwards`
             : undefined,
         }}
+        ref={textContainerRef}
       >
         <Typography
           component={'p'}
@@ -118,7 +74,7 @@ function About({}: Props) {
           successful carrier.
         </Typography>
       </Box>
-    </Box>
+    </BackgroundAnimationSection>
   );
 }
 export default About;

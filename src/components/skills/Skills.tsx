@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Box, Typography, SvgIcon } from '@mui/material';
-import { lightBlue, teal, cyan } from '@mui/material/colors';
+
 import {
   Html5,
   Css3,
@@ -17,67 +17,88 @@ import {
   Linux,
 } from '@emotion-icons/simple-icons';
 
+import BackgroundAnimationSection from '../BackgroundAnimationSection';
 import { ctx } from '../../Context';
 
 interface Props {}
 
 function Skills({}: Props) {
   const { mode } = useContext(ctx);
+
   const skills = [
-    <Html5 title='HTML' />,
-    <Css3 title='CSS' />,
-    <Javascript title='JavaScript' />,
-    <ReactLogo title='React' />,
-    <Nodejs title='Node.js' />,
-    <Mongodb title='MongoDB' />,
-    <Express title='Express' />,
-    <Sass title='Sass' />,
-    <Materialui title='MaterialUI' />,
-    <Linux title='Linux' />,
-    <Git title='Git' />,
+    Html5,
+    Css3,
+    Javascript,
+    ReactLogo,
+    Nodejs,
+    Mongodb,
+    Express,
+    Sass,
+    Materialui,
+    Linux,
+    Git,
+  ];
+  const skillText = [
+    'HTML',
+    'CSS',
+    'Javascript',
+    'React',
+    'Nodejs',
+    'Mongodb',
+    'Express',
+    'Sass',
+    'Material UI',
+    'Linux',
+    'Git',
   ];
 
   return (
-    <Box sx={(theme) => ({ mt: 10 })} id='skills'>
-      <Typography
-        align='center'
-        component='h2'
-        variant='h5'
-        sx={(theme) => ({ color: theme.palette.text.secondary })}
-      >
-        SKILLS
-      </Typography>
-      {/*TODO:Make a component*/}
+    <BackgroundAnimationSection
+      text={'skills'}
+      id={'skills'}
+      sx={{ height: '50vh' }}
+    >
       <Box
         sx={(theme) => ({
-          mt: 5,
-          mb: 50,
-          mx: 'auto',
-          borderRadius: '1em',
-          backgroundColor:
-            mode === 'light' ? theme.palette.grey['300'] : cyan['700'],
-          // boxShadow: theme.shadows[20],
-          width: '90%',
-          maxWidth: '960px',
           display: 'flex',
+          flexBasis: '55%',
+          mx: 'auto',
+          justifyContent: 'center',
           flexWrap: 'wrap',
-          justifyContent: 'space-evenly',
           gap: 2,
-          p: 2,
         })}
       >
-        {skills.map((skill) => {
+        {skills.map((Skill, idx) => {
           return (
-            <Box sx={{}} key={skill.props.title}>
-              <SvgIcon sx={{ display: 'block', mx: 'auto', fontSize: '2rem' }}>
-                {skill}
+            <Box
+              sx={(theme) => ({
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                p: 2,
+              })}
+            >
+              <SvgIcon
+                sx={(theme) => ({
+                  fontSize: 'clamp(3rem,10vw,6rem)',
+                  color: theme.palette.text.disabled,
+                })}
+              >
+                <Skill />
               </SvgIcon>
-              <Typography align='center'>{skill.props.title}</Typography>
+              <Typography
+                sx={(theme) => ({
+                  fontSize: 'clamp(1.25rem,3.5vw,2rem)',
+                  color: theme.palette.text.disabled,
+                })}
+              >
+                {skillText[idx]}
+              </Typography>
             </Box>
           );
         })}
       </Box>
-    </Box>
+    </BackgroundAnimationSection>
   );
 }
 export default Skills;
