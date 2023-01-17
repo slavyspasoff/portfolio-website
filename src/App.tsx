@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import Main from './components/main/Main';
 import About from './components/about/About';
 import Skills from './components/skills/Skills';
-import SocialLinks from './components/SolicalLinks';
+import SocialLinks from './components/SocialLinks';
 
 function App() {
   const { mode, setMode } = useContext(ctx);
