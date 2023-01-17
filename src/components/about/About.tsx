@@ -9,11 +9,12 @@ const Wrapper = styled('span')(({ theme }) => ({
 
 const backgroundAnimation = keyframes`
   0% {
-      transform: translateY(12.5%);
+      filter:blur(1rem);
+      transform: translateX(-12.5%);
     }
   100% {
       opacity: 1;
-    },
+    }
 `;
 
 const textAnimation = keyframes`
@@ -45,7 +46,7 @@ function About({}: Props) {
       sx={(theme) => ({
         minHeight: '100vh',
         position: 'relative',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('md')]: {
           display: 'flex',
           alignItems: 'center',
         },
@@ -56,8 +57,8 @@ function About({}: Props) {
       <Typography
         variant='h2'
         sx={(theme) => ({
-          [theme.breakpoints.up('sm')]: {
-            fontSize: 'clamp(5rem,15vw,15rem)',
+          [theme.breakpoints.up('md')]: {
+            fontSize: 'clamp(10rem,15vw,15rem)',
             color: alpha(theme.palette.text.secondary, 0.05),
             position: 'absolute',
             top: '50%',
@@ -68,12 +69,13 @@ function About({}: Props) {
               ? `${backgroundAnimation} 750ms 0.5s ease-in forwards`
               : undefined,
           },
-          [theme.breakpoints.down('sm')]: {
+          [theme.breakpoints.down('md')]: {
             textAlign: 'center',
             mt: 10,
           },
         })}
         ref={textRef}
+        gutterBottom
       >
         ABOUT ME
       </Typography>
@@ -95,7 +97,7 @@ function About({}: Props) {
             color: theme.palette.text.secondary,
           })}
         >
-          <Box sx={{ my: '1rem' }}>
+          <Box component='span' sx={{ my: '1rem', display: 'block' }}>
             Hello, I'm Slavy! A <Wrapper>Full Stack Developer</Wrapper>, tech
             enthusiast and a huge nerd! <br />
           </Box>
