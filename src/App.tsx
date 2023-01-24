@@ -1,4 +1,4 @@
-import { useContext, type MouseEventHandler } from 'react';
+import { useContext } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import theme from './theme';
