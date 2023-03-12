@@ -28,15 +28,20 @@ function Projects({}: Props) {
     <BackgroundAnimationSection text='projects' id='projects'>
       <Box
         sx={(theme) => ({
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
+          display: 'grid',
+          // flexWrap: 'wrap',
+          placeItems: 'center',
+          gridTemplateColumns: '1fr',
           width: '100%',
           px: 4,
+          gap: 4,
           [theme.breakpoints.up('md')]: {
             px: 12,
+            gridTemplateColumns: 'repeat(2,1fr)',
           },
-          gap: 6,
+          [theme.breakpoints.up('lg')]: {
+            gridTemplateColumns: 'repeat(3,1fr)',
+          },
         })}
       >
         <Project
@@ -50,7 +55,7 @@ function Projects({}: Props) {
           ]}
           description={'Personal portfolio website'}
           liveDemoLink='https://www.spasoff.de'
-          gitHubLink=''
+          gitHubLink='https://github.com/slavyspasoff/portfolio-website'
         />
         <Project
           text={'Weather App'}
@@ -63,7 +68,7 @@ function Projects({}: Props) {
           ]}
           description={'Weather app working with the OpenWeatherAPI'}
           liveDemoLink=''
-          gitHubLink=''
+          gitHubLink='https://github.com/slavyspasoff/weatherapp'
         />
         <Project
           text={'DevBook'}
@@ -81,7 +86,7 @@ function Projects({}: Props) {
             'Social media for developers created as a final project for DCI in collaboration with Denis McArdle, Nigel Nix, Sunny Eyles, Iwo Kaczmarzyk'
           }
           liveDemoLink='https://www.devbook.live'
-          gitHubLink=''
+          gitHubLink='https://github.com/slavyspasoff/DevBookBackend'
         />
       </Box>
     </BackgroundAnimationSection>

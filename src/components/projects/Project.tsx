@@ -104,7 +104,13 @@ function Project({
           </a>
         </Button>
         <Button startIcon={<GitHub />} variant='text'>
-          Code
+          <a
+            href={gitHubLink}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+            target='_blank'
+          >
+            Code
+          </a>
         </Button>
       </Box>
     </Box>
