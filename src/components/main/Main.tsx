@@ -1,43 +1,46 @@
-import { Box, Button, Typography } from '@mui/material';
-import { TypeAnimation } from 'react-type-animation';
-import profilePicture from '../../assets/profile-picture.webp';
-
+import { Box, Button, Typography } from '@mui/material'
+import { TypeAnimation } from 'react-type-animation'
+import profilePicture from '../../assets/profile-picture-color.webp'
 interface Props {}
 
 function Main({}: Props) {
   return (
     <Box
       component={'main'}
-      /*TODO: Calculate the height 100vh - whatever rem the navbar is
-      P.S.: Maybe add a "dummy" nav behind the real one instead of margin, will solve most of my problems. Or maybe sticky... need to check the mui docs again... 
-      */
       sx={(theme) => ({
         mt: '7.5vh',
         minHeight: '80vh',
         p: 2,
-        [theme.breakpoints.up('sm')]: {
-          height: '50vh',
-          display: 'flex',
-        },
-        '&>*': {
-          flexBasis: '100%',
+        [theme.breakpoints.up('lg')]: {
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
         },
       })}
     >
-      <Box sx={{ display: 'grid', placeItems: 'center' }}>
+      <Box
+        sx={{
+          display: 'grid',
+          placeItems: 'center',
+        }}
+      >
         <img
           src={profilePicture}
-          style={{ width: '100%', maxWidth: '27.5rem', objectFit: 'contain' }}
+          style={{
+            width: '100%',
+            maxWidth: '700px',
+            objectFit: 'contain',
+          }}
         ></img>
       </Box>
       <Box
         sx={(theme) => ({
           display: 'flex',
           flexDirection: 'column',
-          [theme.breakpoints.up('sm')]: {
-            pl: 20,
-          },
           justifyContent: 'center',
+          textAlign: 'center',
+          [theme.breakpoints.up('xl')]: {
+            pr: 30,
+          },
         })}
       >
         <Typography
@@ -46,8 +49,10 @@ function Main({}: Props) {
           gutterBottom
           sx={(theme) => ({
             fontWeight: theme.typography.fontWeightMedium,
+            minWidth: '5ch',
           })}
         >
+          {' '}
           <TypeAnimation
             sequence={[200, 'Slavy Spasoff']}
             speed={20}
@@ -60,8 +65,12 @@ function Main({}: Props) {
           component={'h2'}
           variant='h4'
           gutterBottom
-          sx={(theme) => ({ color: theme.palette.text.secondary })}
+          sx={(theme) => ({
+            color: theme.palette.text.secondary,
+            minWidth: '5ch',
+          })}
         >
+          {' '}
           <TypeAnimation
             sequence={[1500, 'Fullstack developer']}
             speed={50}
@@ -75,8 +84,7 @@ function Main({}: Props) {
           <Button variant='outlined'>Contact me</Button>
         </Box>
       </Box>
-      {/*TODO: Add prompt to scroll down */}
     </Box>
-  );
+  )
 }
-export default Main;
+export default Main

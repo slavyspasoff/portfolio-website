@@ -1,11 +1,11 @@
-import { Box, Typography, SvgIcon, keyframes } from '@mui/material';
-import { type ComponentType, useRef } from 'react';
+import { Box, Typography, SvgIcon, keyframes } from '@mui/material'
+import { type ComponentType, useRef } from 'react'
 
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver'
 
 interface Props {
-  Icon: ComponentType;
-  text: string;
+  Icon: ComponentType
+  text: string
 }
 
 const textAnimation = keyframes`
@@ -15,11 +15,11 @@ const textAnimation = keyframes`
   100% {
     opacity: 1;
   }
-`;
+`
 
 function Skill({ Icon, text }: Props) {
-  const iconContainerRef = useRef<HTMLDivElement>(null);
-  const isIntersecting = useIntersectionObserver(iconContainerRef);
+  const iconContainerRef = useRef<HTMLDivElement>(null)
+  const isIntersecting = useIntersectionObserver(iconContainerRef)
 
   return (
     <Box
@@ -44,7 +44,9 @@ function Skill({ Icon, text }: Props) {
       <SvgIcon
         sx={(theme) => ({
           fontSize: 'clamp(3rem,10vw,6rem)',
+          transform: `scale(${text !== 'TypeScript' ? 1 : 0.75})`,
         })}
+        titleAccess={text}
       >
         <Icon />
       </SvgIcon>
@@ -56,6 +58,6 @@ function Skill({ Icon, text }: Props) {
         {text}
       </Typography>
     </Box>
-  );
+  )
 }
-export default Skill;
+export default Skill

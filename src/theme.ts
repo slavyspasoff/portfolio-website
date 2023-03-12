@@ -1,5 +1,5 @@
-import { createTheme, darkScrollbar, type PaletteMode } from '@mui/material';
-import { grey, teal, cyan } from '@mui/material/colors';
+import { createTheme, darkScrollbar, type PaletteMode } from '@mui/material'
+import { grey, teal, cyan } from '@mui/material/colors'
 
 export default (theme: PaletteMode) =>
   createTheme({
@@ -28,4 +28,4 @@ export default (theme: PaletteMode) =>
         },
       },
     },
-  });
+  })

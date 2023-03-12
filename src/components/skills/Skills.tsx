@@ -1,57 +1,40 @@
-import { useContext } from 'react';
-import { Box } from '@mui/material';
+import { Box } from '@mui/material'
 
 import {
   Html5,
   Css3,
-  Sass,
   Javascript,
   ReactLogo,
   Nodejs,
   Git,
-} from '@emotion-icons/boxicons-logos';
+} from '@emotion-icons/boxicons-logos'
 import {
   Express,
   Materialui,
   Mongodb,
   Linux,
-} from '@emotion-icons/simple-icons';
+  Typescript,
+} from '@emotion-icons/simple-icons'
 
-import BackgroundAnimationSection from '../BackgroundAnimationSection';
-import Skill from './Skill';
-import { ctx } from '../../Context';
+import BackgroundAnimationSection from '../BackgroundAnimationSection'
+import Skill from './Skill'
 
 interface Props {}
 
 function Skills({}: Props) {
-  const { mode } = useContext(ctx);
-
   const skills = [
-    Html5,
-    Css3,
-    Javascript,
-    ReactLogo,
-    Nodejs,
-    Mongodb,
-    Express,
-    Sass,
-    Materialui,
-    Linux,
-    Git,
-  ];
-  const skillText = [
-    'HTML',
-    'CSS',
-    'Javascript',
-    'React',
-    'Nodejs',
-    'Mongodb',
-    'Express',
-    'Sass',
-    'Material UI',
-    'Linux',
-    'Git',
-  ];
+    { element: Html5, text: 'HTML' },
+    { element: Css3, text: 'CSS' },
+    { element: Javascript, text: 'JavaScript' },
+    { element: Typescript, text: 'TypeScript' },
+    { element: ReactLogo, text: 'React' },
+    { element: Nodejs, text: 'Nodejs' },
+    { element: Mongodb, text: 'Mongodb' },
+    { element: Express, text: 'Express' },
+    { element: Materialui, text: 'Material UI' },
+    { element: Linux, text: 'Linux' },
+    { element: Git, text: 'Git' },
+  ]
 
   return (
     <BackgroundAnimationSection text={'skills'} id={'skills'}>
@@ -68,13 +51,11 @@ function Skills({}: Props) {
           gap: 2,
         })}
       >
-        {skills.map((skill, idx) => {
-          return (
-            <Skill Icon={skill} text={skillText[idx]} key={skillText[idx]} />
-          );
+        {skills.map(({ element, text }) => {
+          return <Skill Icon={element} text={text} key={text} />
         })}
       </Box>
     </BackgroundAnimationSection>
-  );
+  )
 }
-export default Skills;
+export default Skills

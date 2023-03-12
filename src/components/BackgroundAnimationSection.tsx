@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react'
 import {
   Box,
   Typography,
@@ -6,15 +6,15 @@ import {
   keyframes,
   type SxProps,
   type Theme,
-} from '@mui/material';
+} from '@mui/material'
 
 interface Props {
-  children: ReactNode;
-  text: string;
-  id?: string;
+  children: ReactNode
+  text: string
+  id?: string
 }
 
-import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
 
 const backgroundAnimation = keyframes`
   0% {
@@ -24,14 +24,14 @@ const backgroundAnimation = keyframes`
   100% {
       opacity: 1;
     }
-`;
+`
 
 interface Props {}
 
 function Section({ children, text, id }: Props) {
-  const backgroundTextRef = useRef<HTMLHeadingElement>(null);
+  const backgroundTextRef = useRef<HTMLHeadingElement>(null)
 
-  const isIntersecting = useIntersectionObserver(backgroundTextRef);
+  const isIntersecting = useIntersectionObserver(backgroundTextRef)
   return (
     <Box
       sx={(theme) => ({
@@ -52,6 +52,7 @@ function Section({ children, text, id }: Props) {
             fontSize: 'clamp(10rem,15vw,15rem)',
             color: alpha(theme.palette.text.secondary, 0.05),
             position: 'absolute',
+            zIndex: -1,
             top: '50vh',
             left: 0,
             userSelect: 'none',
@@ -73,6 +74,6 @@ function Section({ children, text, id }: Props) {
       </Typography>
       {children}
     </Box>
-  );
+  )
 }
-export default Section;
+export default Section

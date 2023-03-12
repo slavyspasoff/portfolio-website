@@ -3,7 +3,7 @@ import {
   type MouseEventHandler,
   type Dispatch,
   type SetStateAction,
-} from 'react';
+} from 'react'
 import {
   AppBar,
   Drawer,
@@ -13,13 +13,12 @@ import {
   useScrollTrigger,
   type PaletteMode,
   type SxProps,
-  Typography,
-} from '@mui/material';
-import { LightModeOutlined, DarkModeOutlined, Menu } from '@mui/icons-material';
+} from '@mui/material'
+import { Menu, LightbulbOutlined, DarkModeOutlined } from '@mui/icons-material'
 
 interface Props {
-  mode: PaletteMode;
-  setMode: Dispatch<SetStateAction<PaletteMode>>;
+  mode: PaletteMode
+  setMode: Dispatch<SetStateAction<PaletteMode>>
 }
 // TODO: Move to styles maybe
 const NavItem = styled('a')(({ theme }) => ({
@@ -27,11 +26,11 @@ const NavItem = styled('a')(({ theme }) => ({
   fontWeight: theme.typography.fontWeightMedium,
   color: theme.palette.primary.main,
   textTransform: 'capitalize',
-}));
+}))
 
 function Navbar({ mode, setMode }: Props) {
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const navItems = ['home', 'about', 'skills', 'project', 'contacts'];
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false)
+  const navItems = ['home', 'about', 'projects', 'skills', 'contacts']
 
   //TODO: Move to own component
   //TODO: Make it an UL Element
@@ -56,20 +55,20 @@ function Navbar({ mode, setMode }: Props) {
         </NavItem>
       ))}
     </Box>
-  );
+  )
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-  });
+  })
 
   const handleDrawerToggle = () => {
-    setMobileOpen((prev) => !prev);
-  };
+    setMobileOpen((prev) => !prev)
+  }
 
   const handleModeChange: MouseEventHandler<HTMLButtonElement> = (evt) => {
-    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'))
+  }
 
   return (
     <Box>
@@ -80,7 +79,7 @@ function Navbar({ mode, setMode }: Props) {
         sx={(theme) => ({
           backgroundColor: theme.palette.background.default,
           flexDirection: 'row',
-          justifyContent: 'end',
+          justifyContent: 'space-between',
           alignContent: 'center',
           px: 3,
           py: 1,
@@ -91,23 +90,10 @@ function Navbar({ mode, setMode }: Props) {
           },
         })}
       >
-        {/* <Typography
-          sx={(theme) => ({
-            fontFamily: 'Dancing Script',
-            // color: theme.palette.text.primary,
-            color: theme.palette.primary.main,
-            fontSize: '1.25rem',
-          })}
-        >
-          Slavy Spasoff
-        </Typography> */}
         {renderNavItems({
           display: { xs: 'none', sm: 'flex' },
         })}
-        <IconButton onClick={handleModeChange} disableRipple size='small'>
-          {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
-          {/*TODO: Add text "dark/light mode" and wrap it in a container. Then fix the svg sizing.*/}
-        </IconButton>
+
         <IconButton
           disableRipple
           size='small'
@@ -120,6 +106,10 @@ function Navbar({ mode, setMode }: Props) {
           onClick={handleDrawerToggle}
         >
           <Menu />
+        </IconButton>
+        <IconButton onClick={handleModeChange} disableRipple size='small'>
+          {mode === 'light' ? <DarkModeOutlined /> : <LightbulbOutlined />}
+          {/*TODO: Add text "dark/light mode" and wrap it in a container. Then fix the svg sizing.*/}
         </IconButton>
       </AppBar>
       <Box component='nav'>
@@ -153,6 +143,6 @@ function Navbar({ mode, setMode }: Props) {
         </Drawer>
       </Box>
     </Box>
-  );
+  )
 }
-export default Navbar;
+export default Navbar
