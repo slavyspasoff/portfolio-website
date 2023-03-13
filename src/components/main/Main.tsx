@@ -10,7 +10,6 @@ function Main({}: Props) {
     <Box
       component={'main'}
       sx={(theme) => ({
-        mt: '7.5vh',
         minHeight: '80vh',
         p: 2,
         [theme.breakpoints.up('lg')]: {
@@ -20,16 +19,19 @@ function Main({}: Props) {
       })}
     >
       <Box
-        sx={{
+        sx={(theme) => ({
           display: 'grid',
           placeItems: 'center',
-        }}
+          [theme.breakpoints.up('xl')]: {
+            pl: 10,
+          },
+        })}
       >
         <img
           src={profilePicture}
           style={{
             width: '100%',
-            maxWidth: '700px',
+            maxWidth: '770px',
             objectFit: 'contain',
           }}
         ></img>
@@ -41,7 +43,8 @@ function Main({}: Props) {
           justifyContent: 'center',
           textAlign: 'center',
           [theme.breakpoints.up('xl')]: {
-            pr: 30,
+            pr: 35,
+            pt: 10,
           },
         })}
       >
@@ -52,6 +55,7 @@ function Main({}: Props) {
           sx={(theme) => ({
             fontWeight: theme.typography.fontWeightMedium,
             minWidth: '5ch',
+            fontSize: '4.15rem',
           })}
         >
           {' '}
@@ -70,6 +74,8 @@ function Main({}: Props) {
           sx={(theme) => ({
             color: theme.palette.text.secondary,
             minWidth: '5ch',
+            fontSize: '2.35rem',
+            // mb: 2,
           })}
         >
           {' '}
@@ -86,7 +92,10 @@ function Main({}: Props) {
             download
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            <Button variant='contained' sx={{ mr: 4 }}>
+            <Button
+              variant='contained'
+              sx={{ mr: 4.5, fontSize: '0.975rem', py: 0.55 }}
+            >
               Download CV
             </Button>
           </a>
@@ -94,7 +103,9 @@ function Main({}: Props) {
             href='#contacts'
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            <Button variant='outlined'>Contact me</Button>
+            <Button variant='outlined' sx={{ fontSize: '0.975rem', py: 0.55 }}>
+              Contact me
+            </Button>
           </a>
         </Box>
       </Box>

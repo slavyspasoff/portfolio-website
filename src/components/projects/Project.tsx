@@ -38,7 +38,7 @@ function Project({
     <Box
       sx={(theme) => ({
         p: 4,
-        maxWidth: '360px',
+        maxWidth: '380px',
         borderRadius: 2,
         boxShadow: `0px 5px 20px 5px ${
           theme.palette.mode === 'light' ? blueGrey[200] : blueGrey[900]
