@@ -1,10 +1,10 @@
-import { Box, Typography, keyframes } from '@mui/material';
+import { Box, Typography, keyframes } from '@mui/material'
 import {
   LinkedIn,
   GitHub,
   Email,
   type SvgIconComponent,
-} from '@mui/icons-material';
+} from '@mui/icons-material'
 
 interface Props {}
 
@@ -15,7 +15,7 @@ const animation = keyframes`
 100%{
   transform: translateY(180deg)
 }
-`;
+`
 
 const Icon = ({ I }: { I: SvgIconComponent }): JSX.Element => {
   return (
@@ -30,8 +30,8 @@ const Icon = ({ I }: { I: SvgIconComponent }): JSX.Element => {
         },
       })}
     />
-  );
-};
+  )
+}
 
 function SocialLinks({}: Props) {
   return (
@@ -64,7 +64,7 @@ function SocialLinks({}: Props) {
       >
         <Icon I={GitHub} />
       </a>
-      <a href='#contact'>
+      <a href='#contacts'>
         <Icon I={Email} />
       </a>
       <Box
@@ -85,6 +85,6 @@ function SocialLinks({}: Props) {
         scroll down
       </Typography>
     </Box>
-  );
+  )
 }
-export default SocialLinks;
+export default SocialLinks

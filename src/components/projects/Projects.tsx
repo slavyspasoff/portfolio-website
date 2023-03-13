@@ -67,7 +67,7 @@ function Projects({}: Props) {
             { text: 'MaterialUI', Icon: Materialui },
           ]}
           description={'Weather app working with the OpenWeatherAPI'}
-          liveDemoLink=''
+          liveDemoLink='https://weatherapp-b8e3.onrender.com'
           gitHubLink='https://github.com/slavyspasoff/weatherapp'
         />
         <Project

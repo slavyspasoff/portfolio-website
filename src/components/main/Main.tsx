@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from '@mui/material'
 import { TypeAnimation } from 'react-type-animation'
 import profilePicture from '../../assets/profile-picture-color.webp'
+import cvFile from '../../assets/cv-slavy-spasoff.pdf'
+
 interface Props {}
 
 function Main({}: Props) {
@@ -78,10 +80,22 @@ function Main({}: Props) {
           />
         </Typography>
         <Box>
-          <Button variant='contained' sx={{ mr: 4 }}>
-            Download CV
-          </Button>
-          <Button variant='outlined'>Contact me</Button>
+          <a
+            href={cvFile}
+            rel='noreferrer noopener'
+            download
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <Button variant='contained' sx={{ mr: 4 }}>
+              Download CV
+            </Button>
+          </a>
+          <a
+            href='#contacts'
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <Button variant='outlined'>Contact me</Button>
+          </a>
         </Box>
       </Box>
     </Box>

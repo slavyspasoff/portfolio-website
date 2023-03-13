@@ -24,6 +24,7 @@ interface Props {
   liveDemoLink?: string
   gitHubLink?: string
 }
+
 function Project({
   text,
   imgSrc,
@@ -94,24 +95,26 @@ function Project({
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-        <Button startIcon={<Language />} variant='text'>
-          <a
-            href={liveDemoLink}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            target='_blank'
-          >
+        <a
+          href={liveDemoLink}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+          rel='noreferrer noopener'
+          target='_blank'
+        >
+          <Button startIcon={<Language />} variant='text'>
             Demo
-          </a>
-        </Button>
-        <Button startIcon={<GitHub />} variant='text'>
-          <a
-            href={gitHubLink}
-            style={{ textDecoration: 'none', color: 'inherit' }}
-            target='_blank'
-          >
+          </Button>
+        </a>
+        <a
+          href={gitHubLink}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+          rel='noreferrer noopener'
+          target='_blank'
+        >
+          <Button startIcon={<GitHub />} variant='text'>
             Code
-          </a>
-        </Button>
+          </Button>
+        </a>
       </Box>
     </Box>
   )
