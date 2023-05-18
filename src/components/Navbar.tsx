@@ -30,7 +30,7 @@ const NavItem = styled('a')(({ theme }) => ({
 
 function Navbar({ mode, setMode }: Props) {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false)
-  const navItems = ['home', 'about', 'projects', 'skills', 'contacts']
+  const navItems = ['home', 'about', 'projects', 'skills']
 
   //TODO: Move to own component
   //TODO: Make it an UL Element
